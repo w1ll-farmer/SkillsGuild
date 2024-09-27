@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Recommendations{% endblock %}
+
+{% block page %}
+<div>
+    <div class="grow" style="float: right; margin: auto 3%;">
+        <a class="circle-button" href="profile">
+            <span>🡪</span> 
+        </a>
+    </div>
+    <h1 style="margin-bottom: 20px;">
+        Here are your recommendations
+    </h1>
+    <div class="line" style="margin-top: 0; margin-bottom: 2%;"></div>
+</div>
+{% if courses|length == 0: %}
+    <h3 style="margin-bottom: 20px; text-align: center;">
+        It looks empty here. 
+    </h3>
+    <h3 style="margin-bottom: 20px; text-align: center;">
+        Try using the chatbot to get recommendations.
+    </h3>
+{% else %}
+<div class="recs">   
+    {% for course in courses %}
+    <table class="rec-table">
+        <tr>
+            <td style="width: 70%; padding: 0 4px;"><a href='{{ course["url"] }}' target="_blank">{{ course["name"] }}</a></td>
+            <td style="width: 10%; padding: 0 4px;">{{ course["xp"] }}XP</td>
+            {% if course["type"] == "helmet" %}
+            <td style="width: 20%;"><img class="rec-image" src="/static/assets/images/head.png" alt="Helmet Image"></td>
+            {% elif course["type"] == "chestplate" %}
+            <td style="width: 20%;"><img class="rec-image" src="/static/assets/images/chest.png" alt="Chestpiece Image"></td>
+            {% elif course["type"] == "leggings" %}
+            <td style="width: 20%;"><img class="rec-image" src="/static/assets/images/legs.png" alt="Leggings Image"></td>
+            {% elif course["type"] == "boots" %}
+            <td style="width: 20%;"><img class="rec-image" src="/static/assets/images/boots.png" alt="Boots Image"></td>
+            {% elif course["type"] == "weapon" %}
+            <td style="width: 20%;"><img class="rec-image" src="/static/assets/images/sword.png" alt="Sword Image"></td>
+            {% endif %}
+        </tr>
+    </table>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

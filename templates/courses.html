@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}Courses{% endblock %}
+
+{% block content %}
+{% if courses|length == 0: %}
+    <h3 style="margin-bottom: 20px; text-align: center;">
+        It looks empty here. 
+    </h3>
+    <h3 style="margin-bottom: 20px; text-align: center;">
+        Try using the chatbot to get recommendations.
+    </h3>
+{% else %}
+<div class="recs">
+    {% for course in courses %}
+    <table class="rec-table" data-table-id="{{ course["id"] }}">
+        <tr>
+            <td style="width: 70%; padding: 0 4px;"><a href='{{ course["url"] }}' target="_blank">{{ course["name"] }}</a></td>
+            <td style="width: 10%; padding: 0 4px;">{{ course["xp"] }}XP</td>
+            {% if course["type"] == "helmet" %}
+            <td style="width: 20%;"><img class="rec-image" src="/static/assets/images/head.png" alt="Helmet Image"></td>
+            {% elif course["type"] == "chestplate" %}
+            <td style="width: 20%;"><img class="rec-image" src="/static/assets/images/chest.png" alt="Chestpiece Image"></td>
+            {% elif course["type"] == "leggings" %}
+            <td style="width: 20%;"><img class="rec-image" src="/static/assets/images/legs.png" alt="Leggings Image"></td>
+            {% elif course["type"] == "boots" %}
+            <td style="width: 20%;"><img class="rec-image" src="/static/assets/images/boots.png" alt="Boots Image"></td>
+            {% elif course["type"] == "weapon" %}
+            <td style="width: 20%;"><img class="rec-image" src="/static/assets/images/sword.png" alt="Sword Image"></td>
+            {% endif %}
+        </tr>
+        <tr>
+            <td style="border: none; width: 70%;">Completed?</td>
+            <td style="border: none; width: 10%;"></td>
+            <td style="border: none; width: 20%;"><input class="comp-box" data-type="{{ course["type"] }}" data-id="{{ course["id"] }}" type="image" src="/static/assets/images/checkbox.png"></td>
+        </tr>
+    </table>
+    {% endfor %}
+</div>
+{% endif %}
+<script>
+    function completed(completed) {
+        var course = completed.dataset.course;
+        console.log(course);
+        // $.ajax({
+        //     type: "POST",
+        //     url: "/completion",
+        //     success: function(response) {
+        //         // HANDLE RESPONSE.
+        //     },
+        //     error: function(error) {
+        //         console.log(error);
+        //     }
+        // })
+    };
+</script>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+equipmentName,type
+Excalibur,weapon
+Diamond Chestplate,chestplate
+Diamond Helmet,helmet
+Diamond Leggings,leggings
+Diamond Boots,boots
+Iron Chestplate,chestplate
+Iron Helmet,helmet
+Iron Leggings,leggings
+Iron Boots,boots
+Chainmail,chestplate
+Chain Helmet,helmet
+Chain Leggings,leggings
+Chain Boots,boots
+Leather Tunic,chestplate
+Leather Helmet,helmet
+Leather Trousers,leggings
+Leather Shoes,boots
+Dark Sister,weapon
+Dawn,weapon
+Iron Sword,weapon
+Puny Dagger,weapon
+Battleaxe,weapon
+War Hammer,weapon
+No Weapon,weapon
+No Chestplate,chestplate
+No Helmet,helmet
+No Leggings,leggings
+No Boots,boots

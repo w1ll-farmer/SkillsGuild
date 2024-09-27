@@ -1,0 +1,661 @@
+body {
+    font-family: 'Inria Sans', sans-serif;
+    background-color: #fff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 40px;
+    font-size: clamp(40px, 6vw, 75px);
+}
+
+h2 {
+    font-size: 40px;
+    font-size: clamp(40px, 6vw, 50px);
+}
+
+h3 {
+    font-size: 20px;
+    font-size: clamp(20px, 6vw, 35px);
+}
+
+p {
+    font-size: 15px;
+    font-size: clamp(15px, 6vw, 25px);
+}
+
+label {
+    font-size: 15px;
+    font-size: clamp(15px, 6vw, 25px);
+}
+
+.btn-primary {
+    background-color: #0f62fe;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+input[type=checkbox] {
+    accent-color:  #0f62fe; 
+    width: 15px;
+    width: clamp(15px, 6vw, 25px);
+    height: 15px;
+    height: clamp(15px, 6vw, 25px);
+    margin-left: 6px;
+}
+
+input[type=checkbox]:hover {
+    cursor: pointer;
+}
+
+.submit {
+    cursor: pointer;
+    border: none;
+}
+
+.circle-button, .circle-button:hover{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 75px;
+    width: clamp(50px, 10vw, 75px);
+	height: 75px;
+    height: clamp(50px, 10vw, 75px);
+	border-radius: 50%;
+	background-color: #b4b4b4;
+    color: #333;
+	text-decoration: none;
+	font-size: 15px;
+    font-size: clamp(15px, 6vw, 40px);
+    margin: auto;
+    font-family: sans-serif;
+}
+
+.nav-container {
+    display: flex;
+	justify-content: space-evenly;
+	margin: auto;
+    max-width: 100%;
+}
+
+.label {
+    display: table;
+    font-size: 10px;
+    font-size: clamp(10px, 5vw, 30px);
+    margin: auto;
+}
+
+nav {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.grow { 
+    transition: all .2s ease-in-out; 
+}
+
+.grow:hover { 
+    transform: scale(1.2); 
+}
+
+.blue {
+    color: #0f62fe;
+}
+
+.line {
+    width: 100%;
+    height: 0;
+    border: 1px solid #333;
+    margin: auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.form-box {
+    display: block;
+    padding-top: 0.3rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    width: 100%;
+    border: 3px solid #0f62fe;
+}
+
+.form-label {
+    font-size: 25px;
+    margin-bottom: 0rem;
+}
+
+.form-button {
+    background-color: #0f62fe;
+    border-radius: 0px;
+    font-size: 20px;
+    margin-top: 35px;
+}
+
+.xp-bar-border {
+    width: 20px;
+    width: clamp(10px, 4vw, 20px);
+    height: 100%;
+    border: 4px solid #0f62fe;
+    border: clamp(1px, 2vw, 4px) solid #0f62fe;
+    position: relative;
+}
+
+.xp-bar {
+    background-color: #0f62fe;
+    height: 50%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.left-float {
+    width: 50%;
+    float: left;
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+}
+
+.avatar-container {
+    float: left;
+    height: 40vh;
+    height: min(40vw, 40vh);
+}
+
+.xp-container {
+    float: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 40vh;
+    height: min(40vw, 40vh);
+    margin-left: 10px;
+}
+
+.avatar {
+    height: 100%;
+    left: -8%;
+    z-index: 1;
+    position: relative;
+}
+
+.avatar-sword {
+    height: 35%;
+    top: -10%;
+    z-index: 2;
+    position: relative;
+}
+
+.right-float {
+    float: right;
+    width: 50%;
+}
+
+.stat-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-item {
+    font-size: 8px;
+    font-size: clamp(8px, 4vw, 23px);
+    align-items: center;
+}
+
+.stat-bar-border {
+    height: 8px;
+    height: clamp(8px, 4vw, 23px);
+    width: 50%;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+.stat-bar {
+    background-color: #0f62fe;
+    height: 100%;
+    width: 50%;
+    border-radius: 20px;
+}
+
+.vert-line {
+    width: 1px;
+    background-color: #333;
+    height: 70vh;
+}
+
+.right-stick {
+    float: right;
+    position: sticky;
+    display: flex;
+}
+
+select {
+    font-size: 20px;
+    font-size: clamp(20px, 6vw, 35px);
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    text-align: right;
+}
+
+.signq {
+    margin-bottom: 30px;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.chat-header {
+    width: 100%;
+    z-index: 1;
+}
+
+.messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 3%;
+}
+
+.message {
+    width: 60%;
+    font-size: 20px;
+    font-size: clamp(20px, 6vw, 35px);
+    margin-bottom: 20px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    line-height: 1.3;
+}
+
+.bot {
+    color: #0f62fe;
+}
+
+.user {
+    display: block;
+    margin-left: auto;
+    text-align: right;
+}
+
+.chat-input {
+    width: 100%;
+    z-index: 1;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 5px;
+    border: 2px solid #0f62fe;
+}
+
+.chat-input button {
+    padding: 10px;
+    background-color: #0f62fe;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background-color: #0056b3;
+}
+
+.recs {
+    margin: auto;
+    width: 50%;
+    display: grid;
+    flex-direction: column;
+    justify-content: space-around;
+    overflow: auto;
+}
+
+
+.tab input[type="radio"] {
+    display: none;
+}
+
+.tab label {
+    display: block;
+    border: 3px solid #0f62fe;
+    cursor: pointer;
+    font-size: 20px;
+    font-size: clamp(20px, 6vw, 35px);
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+.tab input[type="radio"]:checked + label + .content {
+    display: block;
+}
+  
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+  }
+.tab {
+    flex-basis: 100%;
+}
+
+.tab .content {
+    display: none;
+    padding: 5px;
+    border: 3px solid #0f62fe;
+    margin-bottom: .5rem;
+}
+
+.inventory {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.inventory, .inventory td {
+    border-bottom: 3px solid #0f62fe;
+}
+
+.inventory td {
+    padding-left: 10px;
+    padding-top: 6px;
+    font-size: 15px;
+    font-size: clamp(15px, 6vw, 25px);
+    cursor: pointer;
+}
+
+.content {
+    max-height: 180px;
+    overflow-y: auto;
+}
+
+.rec-table {
+    border: 4px solid #0f62fe;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    min-height: 200px;
+}
+
+.rec-table td {
+    border: 4px solid #0f62fe;
+    border-collapse: collapse;
+    text-align: center; 
+    vertical-align: middle;
+    font-size: 15px;
+    font-size: clamp(15px, 6vw, 25px);
+}
+
+.rec-image {
+    width: 90%;
+    padding: 5px;
+}
+
+.comp-box {
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    display: block;
+}
+
+md-block p{
+    font-size: 20px;
+    font-size: clamp(20px, 6vw, 35px) !important;
+    margin-bottom: 20px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    line-height: 1.3;
+}
+
+.messages button{
+    color: #000;
+    background-color: #b4b4b4;
+    border: 2px solid #b4b4b4;
+    border-radius: 12px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.messages button:hover{
+    background-color: #a0a0a0;
+    border: 2px solid #0f62fe;
+}
+
+.messages p {
+    margin-bottom: 5px;
+}
+
+.messages a {
+    text-decoration: underline;
+}
+
+.messages a:hover {
+    color: #003772;
+}
+
+.buttons{
+    width: 60%;
+}
+
+.messages .select_div {
+    position: relative;
+    max-height: 300px;
+    overflow: auto;
+    overflow-x: hidden;
+    width: 35%;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin-bottom: 20px;
+}
+
+.messages .select_div button {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #0f62fe;
+    border-radius: 0px;
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.messages .select_div button:focus {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #0f62fe;
+    border-radius: 0px;
+    outline: none;
+}
+
+.messages .select_div button:active {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #0f62fe;
+    border-radius: 0px;
+    outline: none;
+}
+
+.messages .select button:hover{
+    background-color: #a0a0a0;
+    border: 1px solid #0f62fe;
+}
+
+.messages .select button {
+    background-color: fff;
+    border-top: 0px;
+}
+
+/* Sizes are selected from https://www.w3schools.com/Css/css_rwd_mediaqueries.asp */
+/* XS */
+@media screen and (max-width: 600px) {
+    body, .chat-container {
+        padding: 30px 30px;
+    }
+
+    .right-float {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .left-float {
+        width: 100%;
+    }
+
+    .right-stick {
+        display: none;
+    }
+
+    .recs {
+        width: 100%;
+    }
+    .message {
+        width: 100%;
+    }
+    .buttons {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+
+    }
+    .buttons button {
+        width: 100%;
+        display: inline-block;
+        
+    }
+    .messages .select_div {
+        width: 100%;
+        max-height: 200px;
+    }
+}
+/* S */
+@media screen and (min-width: 600px) {
+    body, .chat-container {
+        padding: 40px 40px;
+    }
+
+    .right-float {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .left-float {
+        width: 100%;
+    }
+
+    .right-stick {
+        display: none;
+    }
+    .recs {
+        width: 100%;
+    }
+    .message {
+        width: 80%;
+    }
+    .messages .select_div {
+        width: 80%;
+        max-height: 200px;
+    }
+    
+}
+/* M */
+@media screen and (min-width: 768px) {
+    body, .chat-container {
+        padding: 50px 80px;
+    }
+
+    .right-float {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .left-float {
+        width: 100%;
+    }
+
+    .right-stick {
+        display: none;
+    }
+
+    .recs {
+        width: 70%;
+    }
+    .message {
+        width: 70%;
+    }
+    .messages .select_div {
+        width: 60%;
+        max-height: 200px;
+    }
+}
+/* L */
+@media screen and (min-width: 992px) {
+    body, .chat-container {
+        padding: 70px 200px;
+    }
+
+    .right-float {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .left-float {
+        width: 100%;
+    }
+
+    .right-stick {
+        display: none;
+    }
+
+    .recs {
+        width: 50%;
+    }
+    .message {
+        width: 60%;
+    }
+    .messages .select_div {
+        width: 45%;
+        max-height: 300px;
+    }
+}
+/* XL */
+@media screen and (min-width: 1300px) {
+    body, .chat-container {
+        padding: 70px 250px;
+    }
+
+    .right-float {
+        width: 50%;
+        margin-top: 0px;
+    }
+
+    .left-float {
+        width: 50%;
+    }
+
+    .right-stick {
+        display: flex;
+    }
+
+    .recs {
+        width: 50%;
+    }
+    .message {
+        width: 60%;
+    }
+    .messages .select_div {
+        width: 35%;
+        max-height: 300px;
+    }
+}

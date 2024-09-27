@@ -1,0 +1,147 @@
+{% extends "layout.html" %}
+
+{% block title %}Equipment{% endblock %}
+
+{% block content %}
+<div style="margin-bottom: 6%;">
+    <h1>
+        <span class="blue">{{ name }}</span>
+    </h1>
+</div>
+<div>
+    <div class="left-float profile">
+        <div class="avatar-container">
+            <img class="avatar-sword" src="/static/assets/images/sword.png" alt="User Sword">
+            <img class="avatar" src="/static/assets/images/avatar.png" alt="User Avatar">
+        </div>
+    </div>
+    <div class="right-float">
+        <div class="tabs">
+            <div class="tab">
+                <input type="radio" id="tab-helms" name="inventory">
+                <label class="blue" for="tab-helms">Helmets</label>
+                
+                <div class="content">
+                    <div>
+                        <table class="inventory">
+                            <tbody>
+                                {% if inventory["helmet"] %}
+                                    {% for helm in inventory["helmet"] %}
+                                        <tr>
+                                            <td class="item {% if helm == equipment["helmet"] %}blue{% endif %}" data-item-id="{{ helm }}" data-item-type="helmet">{{ helm }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr>
+                                        <td>No Helmets</td>
+                                    </tr>
+                                {% endif %}
+                            </tbody>
+                        </table> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab">
+                <input type="radio" id="tab-chests" name="inventory">
+                <label class="blue" for="tab-chests">Chestpieces</label>
+                
+                <div class="content">
+                    <div>
+                        <table class="inventory">
+                            <tbody>
+                                {% if inventory["chestplate"] %}
+                                    {% for chest in inventory["chestplate"] %}
+                                        <tr>
+                                            <td class="item {% if chest == equipment["chestplate"] %}blue{% endif %}" data-item-id="{{ chest }}" data-item-type="chestplate">{{ chest }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr>
+                                        <td>No Chestpieces</td>
+                                    </tr>
+                                {% endif %}
+                            </tbody>
+                        </table> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab">
+                <input type="radio" id="tab-legs" name="inventory">
+                <label class="blue" for="tab-legs">Leggings</label>
+                
+                <div class="content">
+                    <div>
+                        <table class="inventory">
+                            <tbody>
+                                {% if inventory["leggings"] %}
+                                    {% for leg in inventory["leggings"] %}
+                                        <tr>
+                                            <td class="item {% if leg == equipment["leggings"] %}blue{% endif %}" data-item-id="{{ leg }}" data-item-type="leggings">{{ leg }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr>
+                                        <td>No Leggings</td>
+                                    </tr>
+                                {% endif %}
+                            </tbody>
+                        </table> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab">
+                <input type="radio" id="tab-boots" name="inventory">
+                <label class="blue" for="tab-boots">Boots</label>
+                
+                <div class="content">
+                    <div>
+                        <table class="inventory">
+                            <tbody>
+                                {% if inventory["boots"] %}
+                                    {% for boot in inventory["boots"] %}
+                                        <tr>
+                                            <td class="item {% if boot == equipment["boots"] %}blue{% endif %}" data-item-id="{{ boot }}" data-item-type="boots">{{ boot }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr>
+                                        <td>No Boots</td>
+                                    </tr>
+                                {% endif %}
+                            </tbody>
+                        </table> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab">
+                <input type="radio" id="tab-weaps" name="inventory">
+                <label class="blue" for="tab-weaps">Weapons</label>
+                
+                <div class="content">
+                    <div>
+                        <table class="inventory">
+                            <tbody>
+                                {% if inventory["weapon"] %}
+                                    {% for weap in inventory["weapon"] %}
+                                        <tr>
+                                            <td class="item {% if weap == equipment["weapon"] %}blue{% endif %}" data-item-id="{{ weap }}" data-item-type="weapon">{{ weap }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr>
+                                        <td>No Weapons</td>
+                                    </tr>
+                                {% endif %}
+                            </tbody>
+                        </table> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

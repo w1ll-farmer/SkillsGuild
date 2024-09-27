@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div style="margin-bottom: 6%; display: flex; flex-direction: row;">
+    <h1 style="padding-top: 3%; margin: auto 0;">
+        Welcome
+        <span class="blue">{{ name }}</span>
+    </h1>
+    <div class="grow" style="margin-left: 5%;">
+        <span class="label">Logout</span>
+        <a class="circle-button" href="logout">
+            <span>🡨</span> 
+        </a>
+    </div>
+</div>
+<div>
+    <div class="profile left-float">
+        <div class="avatar-container">
+            <img class="avatar-sword" src="/static/assets/images/sword.png" alt="User Sword">
+            <img class="avatar" src="/static/assets/images/avatar.png" alt="User Avatar">
+        </div>
+        <div class="xp-container">
+            <span class="label blue">LVL {{ level }}</span>
+            <div class="xp-bar-border">
+                <div class="xp-bar" style="height: {{ exp }}%;"></div>        
+            </div>
+        </div>
+    </div>
+    <div class="stat-container right-float">
+        <h3>Here are your current stats:</h3>
+        <table style="width: 100%; margin-top: 10px;">
+            <tr class="stat-item">
+                <td style="text-align: right;">AI</td>
+                <td class="stat-bar-border">
+                    <div class="stat-bar" style="width: {{ stats['AI'] }}%;"></div>
+                </td>
+            </tr>
+            <tr class="stat-item">
+                <td style="text-align: right;">Cloud</td>
+                <td class="stat-bar-border">
+                    <div class="stat-bar" style="width: {{ stats['cloud'] }}%;"></div>
+                </td>
+            </tr>
+            <tr class="stat-item">
+                <td style="text-align: right;">Data Science</td>
+                <td class="stat-bar-border">
+                    <div class="stat-bar" style="width: {{ stats['dataScience'] }}%;"></div>
+                </td>
+            </tr>
+            <tr class="stat-item">
+                <td style="text-align: right;">Security</td>
+                <td class="stat-bar-border">
+                    <div class="stat-bar" style="width: {{ stats['security'] }}%;"></div>
+                </td>
+            </tr>
+            <tr class="stat-item">
+                <td style="text-align: right;">Quantum Computing</td>
+                <td class="stat-bar-border">
+                    <div class="stat-bar" style="width: {{ stats['quantum'] }}%;"></div>
+                </td>
+            </tr>
+            <tr class="stat-item">
+                <td style="text-align: right;">Fundamentals</td>
+                <td class="stat-bar-border">
+                    <div class="stat-bar" style="width: {{ stats['fundamentals'] }}%;"></div>
+                </td>
+            </tr>
+            <tr class="stat-item">
+                <td style="text-align: right;">Web Development</td>
+                <td class="stat-bar-border">
+                    <div class="stat-bar" style="width: {{ stats['webDev'] }}%;"></div>
+                </td>
+            </tr>
+            <tr class="stat-item">
+                <td style="text-align: right;">IT</td>
+                <td class="stat-bar-border">
+                    <div class="stat-bar" style="width: {{ stats['IT'] }}%;"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock %}

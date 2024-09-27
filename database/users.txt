@@ -1,0 +1,2 @@
+userID,username,password,AI,dataScience,cloud,security,quantum,fundamentals,webDev,IT,weapon,helmet,chestplate,leggings,boots,inventory,level,exp
+1,Adriano,Durham,8.0,3.0,11.0,3.0,0.0,47.0,0.0,40.0,No Weapon,Leather Helmet,Diamond Chestplate,No Leggings,No Boots,No Weapon-No Helmet-No Chestplate-No Leggings-No Boots-Leather Helmet-Diamond Chestplate,2,12.0

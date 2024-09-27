@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block title %}ChatBot{% endblock %}
+
+{% block page %}
+<div class="chat-container">
+    <div class="chat-header">
+        <div class="grow" style="float: right; margin: auto 3%;">
+            <a class="circle-button" href="/recommendations">
+                <span>🡪</span> 
+            </a>
+        </div>
+        <h1 style="margin-bottom: 20px;">
+            Chat with Watson
+        </h1>
+        <div class="line" style="margin-top: 0; margin-bottom: 2%;"></div>
+    </div>
+    <div class="messages" id="messages">
+    </div>
+    <div class="chat-input">
+        <div class="line" style="margin-bottom: 20px; margin-top: 2%;"></div>
+            <form id="message_form" name="message_form" action="/assistant_message" method="POST" style="display: flex;">
+                <input type="text" id="user_input" name="user_input" placeholder="Write to Watson...">
+                <button type="submit" onclick="submitfunction()">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    // This function will scroll the the bottom of the element, giving a chat like interaction with the chatbot.
+    function scroll() {
+        var messages_div = document.getElementById("messages");
+        messages.scrollTop = messages.scrollHeight;
+    }
+    // c is a variable that will allow for separation between the responses.
+    let c = 0
+    function submitfunction(user_input = $('#user_input').val(), eventCheck = true) {
+        if (eventCheck){
+            // This section of code prevents default form submission so it does not interfer with the ajax.
+            event.preventDefault();
+        }
+        // This is the ajax post request.
+        $.ajax({
+            type: "POST",
+            url: "/assistant_message",
+            data: {"sessionID": sessionID, "user_input": user_input},
+            success: function(response) {
+                // Upon success the response is formatted and output.
+                var messages_div = document.getElementById("messages");
+                for (let i = 0; i < response.length; i++) {
+                    // This processes user messages.
+                    if("u_content" in response[i]) {
+                        messages_div.innerHTML += "<div class='message user'><span>"+response[i].u_content+"</span></div>";
+                    }
+                    // This processes text message from the chatbot.
+                    if("b_content" in response[i]) {
+                        messages_div.innerHTML += "<div class='message bot'><span><md-block>"+response[i].b_content+"</md-block></span></div>";
+                    }
+                    // This processes option messages from the chatbot.
+                    if("option_flag" in response[i]) {
+                        c++
+                        // If more than 5 options are provides, this code formats it to be a dropdown selection menu, rather than lots of buttons.
+                        if (response.length - i - 1 > 5) {
+                            messages_div.innerHTML += "<div class='select_div' id='select_div" + c + "'></div>";
+                            // This is the button that triggers the menu to be shown.
+                            var expand = document.createElement("button");
+                            expand.textContent = "Select An Option";
+                            expand.id = "expand" + c;
+                            expand.style.position = "sticky";
+                            expand.style.top = "0";
+                            expand.style.marginBottom = "5px";
+                            var select_div = document.getElementById("select_div" + c);
+                            select_div.appendChild(expand);
+                            // This is the division where the options are located.
+                            select_div.innerHTML += "<div class='select' id='select" + c + "'></div>";
+                            // They are hidden by default to keep the chat clean.
+                            var options = document.getElementById("select" + c);
+                            options.style.display = "none";
+                            options.classList.marginBottom = "0px";
+                            // Create an event listener for interaction with the expansion button to show the menu.
+                            var expand_button = document.getElementById("expand" + c);
+                            expand_button.addEventListener("click", function () {
+                                if (options.style.display == "none") {
+                                    options.style.display = "block";
+                                    expand_button.style.marginBottom = "0px";
+                                    options.style.marginBottom = "5px";
+                                } else {
+                                    options.style.display = "none";
+                                    expand_button.style.marginBottom = "5px";
+                                    options.style.marginBottom = "0px";
+                                }
+                                // Call the scroll content when this event occurs to show the full menu.
+                                scroll()
+                            });
+                            // Another event listener for hiding the menu if the user clicks off the menu once open.
+                            window.addEventListener("click", function(event) {
+                                if (event.target !== expand_button && event.target.parentNode !== options) {
+                                    options.style.display = "none";
+                                }
+                            });
+                            // Iterates through the options in the resonse.
+                            for (let j = i + 1; j < response.length; j++) {
+                                // Stores the response locally.
+                                var message_content = response[j].b_content;
+                                // Creates a button for each option.
+                                var option = document.createElement("button");
+                                option.textContent = message_content; 
+                                option.style.display = "block";
+                                // Creates an onclick attribute that will post the contents of the button back to the chatbot.
+                                option.onclick = function() {
+                                    submitfunction(this.textContent);
+                                    expand_button.textContent = this.textContent;
+                                    options.style.display = "none";
+                                };
+                                var select = document.getElementById("select"+c);
+                                select.appendChild(option);
+                            }
+                        } else {
+                            // If the message contains 5 or less messages then this is selects.
+                            messages_div.innerHTML += "<div class='buttons' id='buttons"+c+"'></div>";
+                            // Iterates through the options in the resonse.
+                            for (let j = i + 1; j < response.length; j++) {
+                                // Stores the response locally.
+                                var message_content = response[j].b_content;
+                                // Creates a button for each option.
+                                var button = document.createElement("button");
+                                button.textContent = message_content; 
+                                // Creates an onclick attribute that will post the contents of the button back to the chatbot.
+                                button.onclick = function() {
+                                    submitfunction(this.textContent);
+                                };
+                                var buttons_div = document.getElementById("buttons"+c);
+                                buttons_div.appendChild(button);
+                            }
+                        }
+                        break;
+                    }
+                }
+                // After recieve any message the scroll function is called again.
+                scroll()
+                // This removes the previous user input from the form.
+                let inputbox = document.getElementById('user_input');
+                inputbox.value = "";
+            },
+            error: function(error){
+                console.log(error);
+            }
+        })
+    }
+
+    // This function handles the session ID and the intially converstation prompt.
+    $(document).ready(function() {
+        $.ajax({
+            type: "POST",
+            url: "/session_start",
+            success: function(response) {
+                sessionID = response;
+                submitfunction("", false);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        })
+    });
+</script>
+{% endblock %}

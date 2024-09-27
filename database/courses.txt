@@ -1,0 +1,15 @@
+courseID,courseName,AI,dataScience,cloud,security,quantum,fundamentals,webDev,IT,exp,equipmentType,url
+1,Information Technology,8,3,4,0,0,35,0,30,80,helmet,https://students.yourlearning.ibm.com/recommended/aoi/TECHNICAL_SKILLS/INFORMATION_TECHNOLOGY_(IT)
+2,Internet of Things,0,0,7,3,0,12,0,10,32,chestplate,https://students.yourlearning.ibm.com/recommended/aoi/TECHNICAL_SKILLS/INTERNET_OF_THINGS_-IOT-
+3,Open Source Technology,0,0,0,6,0,4,15,5,30,leggings,https://students.yourlearning.ibm.com/recommended/aoi/TECHNICAL_SKILLS/OPEN_SOURCE_TECHNOLOGY
+4,Programming and Coding,14,8,12,8,0,11,30,10,93,boots,https://students.yourlearning.ibm.com/recommended/aoi/TECHNICAL_SKILLS/CODING_AND_PROGRAMMING
+5,Quantum Computing,0,0,0,0,40,1,0,0,41,weapon,https://students.yourlearning.ibm.com/recommended/aoi/TECHNICAL_SKILLS/QUANTUM_COMPUTING
+6,Science and Tech,10,2,6,5,16,5,0,5,49,helmet,https://students.yourlearning.ibm.com/recommended/aoi/TECHNICAL_SKILLS/SCIENCE_AND_TECH
+7,User Experience (UX) Design,0,0,0,0,0,3,15,0,18,chestplate,https://students.yourlearning.ibm.com/recommended/aoi/TECHNICAL_SKILLS/USER_EXPERIENCE_(UX)_DESIGN
+8,Virtual Reality,0,0,0,0,0,3,0,0,3,leggings,https://students.yourlearning.ibm.com/recommended/aoi/TECHNICAL_SKILLS/VIRTUAL_REALITY
+9,Web development,0,0,11,0,0,9,15,0,35,boots,https://students.yourlearning.ibm.com/recommended/aoi/TECHNICAL_SKILLS/WEB_DEVELOPMENT
+10,AI,34,13,13,0,6,2,0,0,68,weapon,https://students.yourlearning.ibm.com/recommended/aoi/TECHNICAL_SKILLS/AI_-ARTIFICIAL_INTELLIGENCE-
+11,Cloud Computing,0,23,33,0,0,5,10,5,76,helmet,https://students.yourlearning.ibm.com/recommended/aoi/TECHNICAL_SKILLS/CLOUD_COMPUTING
+12,Cybersecurity,8,15,5,46,18,3,10,15,120,chestplate,https://students.yourlearning.ibm.com/recommended/aoi/TECHNICAL_SKILLS/CYBERSECURITY
+13,Data Science,14,31,6,32,0,3,5,10,101,leggings,https://students.yourlearning.ibm.com/recommended/aoi/TECHNICAL_SKILLS/DATA_SCIENCE_101
+14,Emerging Tech Intro,12,5,3,0,20,4,0,10,54,boots,https://students.yourlearning.ibm.com/recommended/aoi/TECHNICAL_SKILLS/EMERGING_TECH_INTRO

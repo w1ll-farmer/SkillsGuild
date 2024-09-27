@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}Create Profile{% endblock %}
+
+{% block page %}
+<form method="post" action="{{ url_for('submitprof') }}">
+    <h1 style="margin-bottom: 30px;">Let's Get to Know Each Other Better</h1>
+    <div class="left-float" style="display: flex; flex-direction: column;">
+        <div class="signq">
+            <h3 class="blue">Why do you want to learn?</h3>
+            <select style="float: right;" name="reason" id="reason">
+                <option value="hobby">I'm a hobbyist</option>
+                <option value="student">I'm a student</option>
+                <option value="professional">I'm an aspiring professional</option>                   
+            </select>
+        </div>
+        <div class="signq">
+            <h3 class="blue">What is your level of education?</h3>
+            <select style="float: right;" name="education" id="education">
+                <option value="high_school">High School</option>
+                <option value="6th_form">6th Form</option>
+                <option value="university">University</option>
+            </select>
+        </div>
+        <div class="signq">
+            <h3 class="blue">What are you currently learning?</h3>
+            <div style="text-align: right; margin-top: 20px;">
+                <label for="ai">AI</label> 
+                <input type="checkbox" name="curr_ai"><br>
+
+                <label for="Cloud">Cloud</label>
+                <input type="checkbox" name="curr_cloud"><br>
+                
+                <label for="ds">Data Science</label>
+                <input type="checkbox" name="curr_ds"><br>
+                
+                <label for="security">Security</label>
+                <input type="checkbox" name="curr_security"><br>
+                
+                <label for="quantum">Quantum Computing</label>
+                <input type="checkbox" name="curr_quantum"><br>
+                
+                <label for="fundamentals">Computing Fundamentals</label>
+                <input type="checkbox" name="curr_fundamentals"><br>
+                
+                <label for="web">Web Development</label>
+                <input type="checkbox" name="curr_web"><br>
+                
+                <label for="it">IT</label>
+                <input type="checkbox" name="curr_it"><br>
+            </div>
+        </div>
+        <div class="signq">
+            <h3 class="blue">What do you want to learn?</h3>
+            <div style="text-align: right; margin-top: 20px;">
+                <label for="ai">AI</label>
+                <input type="checkbox" name="want_ai"><br>
+
+                <label for="Cloud">Cloud</label>
+                <input type="checkbox" name="want_cloud"><br>
+                
+                <label for="ds">Data Science</label>
+                <input type="checkbox" name="want_ds"><br>
+                
+                <label for="security">Security</label>
+                <input type="checkbox" name="want_security"><br>
+                
+                <label for="quantum">Quantum Computing</label>
+                <input type="checkbox" name="want_quantum"><br>
+                
+                <label for="fundamentals">Computing Fundamentals</label>
+                <input type="checkbox" name="want_fundamentals"><br>
+                
+                <label for="web">Web Development</label>
+                <input type="checkbox" name="want_web"><br>
+                
+                <label for="it">IT</label>
+                <input type="checkbox" name="want_it" value="IT"><br>
+            </div>
+        </div>
+        <nav>
+            <div class="nav-container">
+                <div class="grow">
+                    <input type="submit" value="🡪" class="circle-button submit">
+                    </input>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    <div class="right-stick" style="width: 38%; top: 15vh;">
+        <div class="vert-line"></div>
+        <img src="/static/assets/images/book.png" alt="Book" style="height: 40vh; margin: auto;">
+    </div>
+</form>
+{% endblock %}

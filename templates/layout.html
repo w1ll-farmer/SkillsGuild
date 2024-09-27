@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block page %}
+{% block content %}{% endblock %}
+<nav>
+    <div class="nav-container">
+        {% for key, item in nav_items.items() %}
+            <div class="grow">
+                <span class="label">{{ key }}</span>
+                <a class="circle-button" href="{{ item[1] }}">
+                    <span>{{ item[0] }}</span> 
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</nav>
+{% endblock %}
